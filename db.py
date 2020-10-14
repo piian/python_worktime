@@ -1,5 +1,3 @@
-import datetime
-
 from peewee import *
 
 
@@ -16,8 +14,17 @@ class Runtime(Model):
 
 
 if __name__ == '__main__':
-    all = Runtime.select()
-    for item in all:
-        item.is_add = item.run_time > datetime.time(hour=17, minute=30)
-        print(item.is_add)
-    print(all)
+    list = Runtime.select().where(Runtime.run_date == fn.CURRENT_DATE()).get()
+    if list:
+        Runtime.update(counter=Stat.counter + 1).where(Stat.url == request.url)
+        print('有')
+    else:
+        print("wu")
+    # for i in list:
+    #     print(i)
+    print(list)
+    # all = Runtime.select()
+    # for item in all:
+    #     item.is_add = item.run_time > datetime.time(hour=17, minute=30)
+    #     print(item.is_add)
+    # print(all)
