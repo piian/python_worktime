@@ -1,0 +1,17 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+    <table class="table">
+        <tr>
+            <td>日期</td>
+            <td>时间</td>
+        </tr>
+        {% for item in items %}
+            <tr {% if item.is_add == True%} class="success" {%endif%}>
+                <td >{{item.run_date}}</td>
+                <td >{{item.run_time}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}
+
