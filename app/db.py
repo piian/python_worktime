@@ -16,7 +16,6 @@ class Runtime(Model):
 if __name__ == '__main__':
     list = Runtime.select().where(Runtime.run_date == fn.CURRENT_DATE()).get()
     if list:
-        Runtime.update(counter=Stat.counter + 1).where(Stat.url == request.url)
         print('有')
     else:
         print("wu")
