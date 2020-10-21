@@ -6,7 +6,7 @@ class Runtime(Model):
     run_time = TimeField()
 
     class Meta:
-        setting = {'host': 'localhost', 'user': 'root', 'password': 'rootroot', 'database': 'worktime'}
+        setting = {'host': '192.168.1.40', 'user': 'root', 'password': 'rootroot', 'database': 'worktime'}
         database = MySQLDatabase(**setting)
         # database = SqliteDatabase('my_app.db')
     # def set_database(self):
